@@ -56,9 +56,9 @@
       margin: auto;
     }
 
-    /* =========================
+    /* ========================================
        NAVBAR
-    ========================= */
+    ======================================== */
 
     .navbar {
       position: fixed;
@@ -66,7 +66,7 @@
       left: 0;
       width: 100%;
       z-index: 50;
-      background: rgba(7, 8, 9, 0.82);
+      background: rgba(7, 8, 9, 0.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -98,6 +98,10 @@
       text-transform: uppercase;
     }
 
+    .navlinks a {
+      transition: color 0.2s ease;
+    }
+
     .navlinks a:hover {
       color: #fff;
     }
@@ -110,24 +114,34 @@
       font-size: 10px;
       font-weight: 950;
       letter-spacing: 1.1px;
+      transition: transform 0.2s ease;
     }
 
-    /* =========================
+    .sale-nav:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ========================================
        HERO
-    ========================= */
+    ======================================== */
 
     .hero {
       min-height: 100vh;
+      height: 100vh;
       padding-top: 74px;
+
       display: grid;
       grid-template-columns: 1.03fr 0.97fr;
     }
 
     .hero-copy {
-      padding: 85px 7% 70px 0;
+      padding: 35px 7% 35px 0;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
+
+      min-height: calc(100vh - 74px);
     }
 
     .kicker {
@@ -136,13 +150,13 @@
       font-weight: 900;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: clamp(62px, 9vw, 142px);
-      line-height: 0.83;
-      letter-spacing: -7px;
+      font-size: clamp(58px, 7.2vw, 112px);
+      line-height: 0.82;
+      letter-spacing: -6px;
       font-weight: 950;
       text-transform: uppercase;
     }
@@ -155,60 +169,58 @@
     .hero-desc {
       max-width: 540px;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.75;
-      margin: 28px 0 8px;
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 20px 0 4px;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 22px;
+      margin-top: 18px;
     }
 
-    /* SHOP BUTTON */
+    /* ========================================
+       HERO BUTTONS
+    ======================================== */
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 16px 22px;
+      border-radius: 4px;
+
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 1.1px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
 
     .btn-primary {
       background: var(--wa);
       color: #071008;
-      padding: 16px 22px;
       border: 1px solid var(--wa);
-      border-radius: 4px;
-      font-weight: 950;
-      font-size: 11px;
-      letter-spacing: 1.1px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .btn-primary:hover {
       background: #20bd5b;
       border-color: #20bd5b;
+      transform: translateY(-2px);
     }
-
-    /* WHATSAPP BUTTON */
 
     .btn-secondary {
       background: var(--wa);
       color: #071008;
       border: 1px solid var(--wa);
-      padding: 16px 22px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1.1px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       gap: 9px;
-
-      transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
     }
 
     .btn-secondary:hover {
@@ -218,8 +230,6 @@
       transform: translateY(-2px);
     }
 
-    /* WHATSAPP ICON */
-
     .whatsapp-icon {
       width: 18px;
       height: 18px;
@@ -227,11 +237,17 @@
       flex-shrink: 0;
     }
 
+    /* ========================================
+       HERO STATS
+    ======================================== */
+
     .hero-stats {
       display: flex;
       gap: 36px;
-      margin-top: 55px;
-      padding-top: 18px;
+
+      margin-top: 32px;
+      padding-top: 15px;
+
       border-top: 1px solid var(--line);
     }
 
@@ -249,7 +265,9 @@
       margin-top: 4px;
     }
 
-    /* HERO IMAGE */
+    /* ========================================
+       HERO IMAGE
+    ======================================== */
 
     .hero-media {
       position: relative;
@@ -259,6 +277,7 @@
     }
 
     .hero-media img {
+      width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
@@ -267,6 +286,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
+
       background:
         linear-gradient(
           90deg,
@@ -280,12 +300,16 @@
       position: absolute;
       left: 26px;
       bottom: 26px;
+
       background: var(--acid);
       color: #070809;
+
       padding: 13px 16px;
+
       font-weight: 950;
       font-size: 12px;
       letter-spacing: 1px;
+
       z-index: 2;
     }
 
@@ -293,30 +317,39 @@
       position: absolute;
       right: 26px;
       top: 28px;
+
       border: 1px solid rgba(255, 255, 255, 0.25);
+
       padding: 12px 14px;
+
       font-size: 9px;
       letter-spacing: 1.6px;
       text-transform: uppercase;
+
       background: rgba(7, 8, 9, 0.45);
+
       z-index: 2;
     }
 
-    /* =========================
+    /* ========================================
        TICKER
-    ========================= */
+    ======================================== */
 
     .ticker {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+
       padding: 17px 0;
+
       white-space: nowrap;
       overflow: hidden;
+
       color: #777d84;
     }
 
     .ticker span {
       margin-right: 52px;
+
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 3px;
@@ -327,9 +360,9 @@
       color: var(--acid);
     }
 
-    /* =========================
+    /* ========================================
        SECTIONS
-    ========================= */
+    ======================================== */
 
     .section {
       padding: 100px 0;
@@ -339,6 +372,7 @@
       display: flex;
       justify-content: space-between;
       align-items: end;
+
       gap: 30px;
       margin-bottom: 38px;
     }
@@ -353,14 +387,15 @@
 
     .section-head p {
       max-width: 360px;
+
       color: var(--muted);
       font-size: 12px;
       line-height: 1.7;
     }
 
-    /* =========================
+    /* ========================================
        PRODUCTS
-    ========================= */
+    ======================================== */
 
     .products {
       display: grid;
@@ -384,7 +419,11 @@
     .card-photo img {
       height: 100%;
       object-fit: cover;
-      filter: saturate(0.8) contrast(1.04);
+
+      filter:
+        saturate(0.8)
+        contrast(1.04);
+
       transition: transform 0.5s ease;
     }
 
@@ -426,22 +465,30 @@
 
     .discount {
       margin-left: auto;
+
       background: var(--acid);
       color: #070809;
+
       padding: 5px 7px;
+
       font-size: 9px;
       font-weight: 950;
     }
 
     .order-btn {
       display: block;
+
       margin-top: 16px;
       padding: 12px;
+
       text-align: center;
+
       border: 1px solid #363b41;
+
       font-size: 10px;
       font-weight: 950;
       letter-spacing: 1px;
+
       transition:
         background 0.25s ease,
         border-color 0.25s ease;
@@ -453,9 +500,9 @@
       border-color: var(--wa);
     }
 
-    /* =========================
+    /* ========================================
        CATEGORIES
-    ========================= */
+    ======================================== */
 
     .categories {
       display: grid;
@@ -465,19 +512,28 @@
 
     .category {
       min-height: 220px;
+
       border: 1px solid var(--line);
+
       padding: 24px;
+
       position: relative;
       overflow: hidden;
+
       background: #0e1012;
     }
 
     .category img {
       position: absolute;
       inset: 0;
+
+      width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       opacity: 0.42;
+
       transition: 0.4s;
     }
 
@@ -489,7 +545,9 @@
     .category-content {
       position: relative;
       z-index: 1;
+
       height: 170px;
+
       display: flex;
       flex-direction: column;
       justify-content: end;
@@ -506,19 +564,24 @@
       margin-top: 6px;
     }
 
-    /* =========================
+    /* ========================================
        OFFER
-    ========================= */
+    ======================================== */
 
     .offer {
       margin: 0 0 100px;
+
       background: var(--acid);
       color: #070809;
+
       padding: 54px 6%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       gap: 24px;
+
       border-radius: 7px;
     }
 
@@ -537,40 +600,53 @@
     .offer a {
       background: #070809;
       color: #fff;
+
       padding: 16px 21px;
+
       border-radius: 4px;
+
       font-size: 11px;
       font-weight: 950;
+
       white-space: nowrap;
     }
 
-    /* =========================
+    /* ========================================
        STORY
-    ========================= */
+    ======================================== */
 
     .story {
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       gap: 70px;
+
       align-items: center;
     }
 
     .story-media {
       height: 620px;
+
       overflow: hidden;
+
       background: #1a1d20;
     }
 
     .story-media img {
       height: 100%;
+
       object-fit: cover;
+
       filter: saturate(0.72);
     }
 
     .story-copy h2 {
       font-size: clamp(46px, 6vw, 80px);
+
       line-height: 0.9;
+
       letter-spacing: -4px;
+
       font-weight: 950;
     }
 
@@ -580,9 +656,13 @@
 
     .story-copy p {
       max-width: 520px;
+
       color: var(--muted);
+
       line-height: 1.85;
+
       font-size: 13px;
+
       margin: 28px 0;
     }
 
@@ -592,9 +672,13 @@
 
     .point {
       display: flex;
+
       justify-content: space-between;
+
       padding: 15px 0;
+
       border-bottom: 1px solid var(--line);
+
       font-size: 11px;
     }
 
@@ -602,21 +686,26 @@
       color: var(--muted);
     }
 
-    /* =========================
+    /* ========================================
        FINAL CTA
-    ========================= */
+    ======================================== */
 
     .final-cta {
       padding: 110px 0;
+
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+
       text-align: center;
     }
 
     .final-cta h2 {
       font-size: clamp(52px, 9vw, 120px);
+
       line-height: 0.84;
+
       letter-spacing: -6px;
+
       font-weight: 950;
     }
 
@@ -626,46 +715,67 @@
 
     .final-cta p {
       max-width: 540px;
+
       margin: 22px auto 0;
+
       color: var(--muted);
+
       font-size: 13px;
+
       line-height: 1.8;
     }
 
     .final-cta a {
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
+
       gap: 9px;
+
       margin-top: 26px;
+
       background: var(--wa);
       color: #071008;
+
       padding: 16px 23px;
+
       font-size: 11px;
+
       font-weight: 950;
+
       letter-spacing: 1px;
+
       border-radius: 4px;
+
+      transition: background 0.25s ease;
     }
 
     .final-cta a:hover {
       background: #20bd5b;
     }
 
-    /* =========================
+    /* ========================================
        FOOTER
-    ========================= */
+    ======================================== */
 
     footer {
       padding: 30px 0;
+
       color: #686d73;
+
       font-size: 10px;
+
       letter-spacing: 1.5px;
+
       text-transform: uppercase;
     }
 
     .footer {
       display: flex;
+
       justify-content: space-between;
+
       gap: 20px;
     }
 
@@ -673,9 +783,30 @@
       color: #aaa;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    /* ========================================
+       TABLET
+    ======================================== */
+
+    @media (max-width: 1100px) {
+
+      .hero h1 {
+        font-size: clamp(54px, 7vw, 90px);
+      }
+
+      .hero-copy {
+        padding-right: 35px;
+      }
+
+      .products,
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    /* ========================================
+       MOBILE / TABLET
+    ======================================== */
 
     @media (max-width: 900px) {
 
@@ -688,20 +819,25 @@
       }
 
       .hero {
+        height: auto;
+        min-height: auto;
+
         grid-template-columns: 1fr;
       }
 
       .hero-copy {
-        padding: 95px 0 55px;
+        min-height: auto;
+
+        padding: 100px 0 55px;
+      }
+
+      .hero h1 {
+        font-size: clamp(58px, 14vw, 100px);
       }
 
       .hero-media {
         min-height: 62vh;
-      }
-
-      .products,
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
+        height: 62vh;
       }
 
       .story {
@@ -723,23 +859,77 @@
       }
     }
 
+    /* ========================================
+       MOBILE
+    ======================================== */
+
     @media (max-width: 560px) {
 
-      .products,
-      .categories {
-        grid-template-columns: 1fr;
+      .wrap {
+        width: calc(100% - 28px);
+      }
+
+      .nav {
+        height: 64px;
+      }
+
+      .sale-nav {
+        padding: 10px 11px;
+        font-size: 9px;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .hero-copy {
+        padding: 70px 0 45px;
       }
 
       .hero h1 {
         font-size: 64px;
+        letter-spacing: -4px;
+      }
+
+      .hero-desc {
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
       }
 
       .hero-stats {
         gap: 20px;
+        margin-top: 30px;
       }
 
       .hero-media {
         min-height: 430px;
+        height: 430px;
+      }
+
+      .side-note {
+        right: 14px;
+        top: 14px;
+        font-size: 8px;
+      }
+
+      .hero-badge {
+        left: 14px;
+        bottom: 14px;
+        font-size: 10px;
+      }
+
+      .products,
+      .categories {
+        grid-template-columns: 1fr;
       }
 
       .card-photo {
@@ -762,19 +952,17 @@
         padding: 42px 28px;
       }
 
+      .offer h2 {
+        letter-spacing: -3px;
+      }
+
       .footer {
         display: block;
         line-height: 2;
       }
 
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
+      .final-cta {
+        padding: 85px 0;
       }
     }
   </style>
@@ -782,9 +970,9 @@
 
 <body>
 
-  <!-- =========================
+  <!-- ========================================
        NAVBAR
-  ========================= -->
+  ======================================== -->
 
   <div class="navbar">
 
@@ -795,13 +983,13 @@
       </a>
 
       <div class="navlinks">
-        <a href="#">Training</a>
-        <a href="#">Running</a>
-        <a href="#">Football</a>
-        <a href="#">Gear</a>
+        <a href="#training">Training</a>
+        <a href="#running">Running</a>
+        <a href="#football">Football</a>
+        <a href="#gear">Gear</a>
       </div>
 
-      <a class="sale-nav" href="#">
+      <a class="sale-nav whatsapp-link" href="#">
         50% OFF EVERYTHING
       </a>
 
@@ -812,9 +1000,9 @@
 
   <main>
 
-    <!-- =========================
+    <!-- ========================================
          HERO
-    ========================= -->
+    ======================================== -->
 
     <section class="hero">
 
@@ -838,14 +1026,11 @@
 
         <div class="hero-actions">
 
-          <!-- SHOP BUTTON -->
-
-          <a class="btn-primary" href="#">
+          <a class="btn-primary whatsapp-link" href="#">
             SHOP 50% OFF
           </a>
 
-
-          <!-- WHATSAPP BUTTON -->
+          <!-- GREEN WHATSAPP BUTTON -->
 
           <a class="btn-secondary whatsapp-link" href="#">
 
@@ -854,9 +1039,11 @@
               viewBox="0 0 32 32"
               aria-hidden="true"
             >
+
               <path d="M19.11 17.39c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.32-1.56-1.48-1.83-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.92 2.93 4.65 4.11.65.28 1.15.45 1.54.58.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
 
               <path d="M16.02 3.2c-7.07 0-12.82 5.75-12.82 12.82 0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.53-1.71a12.8 12.8 0 0 0 6.39 1.7h.01c7.06 0 12.81-5.75 12.81-12.82S23.08 3.2 16.02 3.2zm0 23.42h-.01a10.58 10.58 0 0 1-5.39-1.47l-.39-.23-3.88 1.02 1.04-3.78-.25-.39a10.6 10.6 0 1 1 8.88 4.85z"/>
+
             </svg>
 
             WHATSAPP ORDER
@@ -912,9 +1099,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ========================================
          TICKER
-    ========================= -->
+    ======================================== -->
 
     <div class="ticker">
 
@@ -945,11 +1132,11 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ========================================
          PRODUCTS
-    ========================= -->
+    ======================================== -->
 
-    <section class="section">
+    <section class="section" id="gear">
 
       <div class="wrap">
 
@@ -979,7 +1166,7 @@
 
           <!-- PRODUCT 01 -->
 
-          <article class="card">
+          <article class="card" id="training">
 
             <div class="card-photo">
 
@@ -1027,7 +1214,7 @@
 
           <!-- PRODUCT 02 -->
 
-          <article class="card">
+          <article class="card" id="running">
 
             <div class="card-photo">
 
@@ -1075,7 +1262,7 @@
 
           <!-- PRODUCT 03 -->
 
-          <article class="card">
+          <article class="card" id="football">
 
             <div class="card-photo">
 
@@ -1175,9 +1362,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ========================================
          CATEGORIES
-    ========================= -->
+    ======================================== -->
 
     <section
       class="section"
@@ -1218,9 +1405,7 @@
 
             <div class="category-content">
 
-              <small>
-                01
-              </small>
+              <small>01</small>
 
               <h3>
                 RUNNING
@@ -1240,9 +1425,7 @@
 
             <div class="category-content">
 
-              <small>
-                02
-              </small>
+              <small>02</small>
 
               <h3>
                 FOOTBALL
@@ -1262,9 +1445,7 @@
 
             <div class="category-content">
 
-              <small>
-                03
-              </small>
+              <small>03</small>
 
               <h3>
                 TRAINING
@@ -1284,9 +1465,7 @@
 
             <div class="category-content">
 
-              <small>
-                04
-              </small>
+              <small>04</small>
 
               <h3>
                 GYM
@@ -1303,9 +1482,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ========================================
          OFFER
-    ========================= -->
+    ======================================== -->
 
     <div class="wrap">
 
@@ -1333,9 +1512,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ========================================
          STORY
-    ========================= -->
+    ======================================== -->
 
     <section class="section">
 
@@ -1420,9 +1599,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ========================================
          FINAL CTA
-    ========================= -->
+    ======================================== -->
 
     <section class="final-cta">
 
@@ -1448,9 +1627,11 @@
             viewBox="0 0 32 32"
             aria-hidden="true"
           >
+
             <path d="M19.11 17.39c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.32-1.56-1.48-1.83-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.92 2.93 4.65 4.11.65.28 1.15.45 1.54.58.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
 
             <path d="M16.02 3.2c-7.07 0-12.82 5.75-12.82 12.82 0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.53-1.71a12.8 12.8 0 0 0 6.39 1.7h.01c7.06 0 12.81-5.75 12.81-12.82S23.08 3.2 16.02 3.2zm0 23.42h-.01a10.58 10.58 0 0 1-5.39-1.47l-.39-.23-3.88 1.02 1.04-3.78-.25-.39a10.6 10.6 0 1 1 8.88 4.85z"/>
+
           </svg>
 
           WHATSAPP —
@@ -1464,9 +1645,9 @@
   </main>
 
 
-  <!-- =========================
+  <!-- ========================================
        FOOTER
-  ========================= -->
+  ======================================== -->
 
   <footer>
 
@@ -1486,9 +1667,9 @@
   </footer>
 
 
-  <!-- =========================
-       WHATSAPP SCRIPT
-  ========================= -->
+  <!-- ========================================
+       WHATSAPP
+  ======================================== -->
 
   <script>
 
@@ -1507,11 +1688,6 @@
         "?text=" +
         encodeURIComponent(message);
 
-
-      /*
-        Only elements with .whatsapp-link
-        will open WhatsApp.
-      */
 
       document
         .querySelectorAll(".whatsapp-link")
