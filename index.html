@@ -1,234 +1,1532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>VYRON — Performance Sports</title>
-<meta name="description" content="VYRON performance sportswear. Train hard. Move fast. 50% off everything.">
-<style>
-:root{
-  --bg:#070809;--panel:#101215;--panel2:#16191c;--text:#f7f8f9;--muted:#9a9fa5;
-  --acid:#c8ff00;--wa:#25D366;--line:#272b30;--max:1440px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{display:block;width:100%}
-.wrap{width:min(var(--max),calc(100% - 64px));margin:auto}
-.navbar{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(7,8,9,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:950;font-size:25px;letter-spacing:5px}
-.brand span{color:var(--acid)}
-.navlinks{display:flex;gap:30px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#9a9ea3;text-transform:uppercase}
-.navlinks a:hover{color:#fff}
-.sale-nav{background:var(--acid);color:#070809;padding:11px 16px;border-radius:3px;font-size:10px;font-weight:950;letter-spacing:1.1px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.hero{min-height:100vh;padding-top:74px;display:grid;grid-template-columns:1.03fr .97fr}
-.hero-copy{padding:85px 7% 70px 0;display:flex;flex-direction:column;justify-content:center}
-.kicker{color:var(--acid);font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
-.hero h1{font-size:clamp(62px,9vw,142px);line-height:.83;letter-spacing:-7px;font-weight:950;text-transform:uppercase}
-.hero h1 em{font-style:normal;color:var(--acid)}
-.hero-desc{max-width:540px;color:var(--muted);font-size:15px;line-height:1.75;margin:28px 0 8px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.btn-primary{background:var(--wa);color:#071008;padding:16px 22px;border-radius:4px;font-weight:950;font-size:11px;letter-spacing:1.1px}
-.btn-secondary{border:1px solid #383d43;padding:16px 22px;border-radius:4px;font-size:11px;font-weight:900;letter-spacing:1.1px}
-.btn-secondary:hover{border-color:var(--acid);color:var(--acid)}
-.hero-stats{display:flex;gap:36px;margin-top:55px;padding-top:18px;border-top:1px solid var(--line)}
-.stat b{display:block;font-size:18px}.stat span{display:block;color:#70757b;font-size:9px;text-transform:uppercase;letter-spacing:1.3px;margin-top:4px}
-.hero-media{position:relative;min-height:calc(100vh - 74px);overflow:hidden;background:#17191d}
-.hero-media img{height:100%;object-fit:cover;object-position:center}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,8,9,.2),rgba(7,8,9,.02) 50%,rgba(7,8,9,.3))}
-.hero-badge{position:absolute;left:26px;bottom:26px;background:var(--acid);color:#070809;padding:13px 16px;font-weight:950;font-size:12px;letter-spacing:1px}
-.side-note{position:absolute;right:26px;top:28px;border:1px solid rgba(255,255,255,.25);padding:12px 14px;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;background:rgba(7,8,9,.45)}
+  <title>VYRON — Performance Sports</title>
 
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;white-space:nowrap;overflow:hidden;color:#777d84}
-.ticker span{margin-right:52px;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase}.ticker b{color:var(--acid)}
+  <meta
+    name="description"
+    content="VYRON performance sportswear. Train hard. Move fast. 50% off everything."
+  >
 
-.section{padding:100px 0}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
-.section-head h2{font-size:clamp(40px,6vw,76px);line-height:.9;letter-spacing:-4px;font-weight:950;text-transform:uppercase}
-.section-head p{max-width:360px;color:var(--muted);font-size:12px;line-height:1.7}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.card-photo{height:310px;background:#1b1e22}
-.card-photo img{height:100%;object-fit:cover;filter:saturate(.8) contrast(1.04);transition:transform .5s ease}
-.card:hover .card-photo img{transform:scale(1.04)}
-.card-info{padding:18px}
-.type{font-size:9px;color:var(--acid);letter-spacing:2px;font-weight:900}
-.card h3{font-size:18px;margin:9px 0 14px}
-.price-row{display:flex;align-items:center;gap:9px}
-.old{color:#666;text-decoration:line-through}.new{font-size:20px;font-weight:950}
-.discount{margin-left:auto;background:var(--acid);color:#070809;padding:5px 7px;font-size:9px;font-weight:950}
-.order-btn{display:block;margin-top:16px;padding:12px;text-align:center;border:1px solid #363b41;font-size:10px;font-weight:950;letter-spacing:1px}
-.order-btn:hover{background:var(--wa);color:#071008;border-color:var(--wa)}
+  <style>
+    :root {
+      --bg: #070809;
+      --panel: #101215;
+      --panel2: #16191c;
+      --text: #f7f8f9;
+      --muted: #9a9fa5;
+      --acid: #c8ff00;
+      --wa: #25D366;
+      --line: #272b30;
+      --max: 1440px;
+    }
 
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.category{min-height:220px;border:1px solid var(--line);padding:24px;position:relative;overflow:hidden;background:#0e1012}
-.category img{position:absolute;inset:0;height:100%;object-fit:cover;opacity:.42;transition:.4s}
-.category:hover img{transform:scale(1.05);opacity:.55}
-.category-content{position:relative;z-index:1;height:170px;display:flex;flex-direction:column;justify-content:end}
-.category small{color:var(--acid);font-weight:900;letter-spacing:2px}.category h3{font-size:28px;margin-top:6px}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.offer{margin:0 0 100px;background:var(--acid);color:#070809;padding:54px 6%;display:flex;justify-content:space-between;align-items:center;gap:24px;border-radius:7px}
-.offer h2{font-size:clamp(40px,6vw,76px);line-height:.87;letter-spacing:-4px;font-weight:950}.offer p{margin-top:10px;font-size:12px}
-.offer a{background:#070809;color:#fff;padding:16px 21px;border-radius:4px;font-size:11px;font-weight:950;white-space:nowrap}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.story{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.story-media{height:620px;overflow:hidden;background:#1a1d20}.story-media img{height:100%;object-fit:cover;filter:saturate(.72)}
-.story-copy h2{font-size:clamp(46px,6vw,80px);line-height:.9;letter-spacing:-4px;font-weight:950}
-.story-copy h2 span{color:var(--acid)}.story-copy p{max-width:520px;color:var(--muted);line-height:1.85;font-size:13px;margin:28px 0}.points{border-top:1px solid var(--line)}.point{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:11px}.point span:last-child{color:var(--muted)}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
 
-.final-cta{padding:110px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
-.final-cta h2{font-size:clamp(52px,9vw,120px);line-height:.84;letter-spacing:-6px;font-weight:950}
-.final-cta h2 span{color:var(--acid)}
-.final-cta p{max-width:540px;margin:22px auto 0;color:var(--muted);font-size:13px;line-height:1.8}
-.final-cta a{display:inline-block;margin-top:26px;background:var(--wa);color:#071008;padding:16px 23px;font-size:11px;font-weight:950;letter-spacing:1px;border-radius:4px}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-footer{padding:30px 0;color:#686d73;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}.footer{display:flex;justify-content:space-between;gap:20px}.footer strong{color:#aaa}
+    img {
+      display: block;
+      width: 100%;
+    }
 
-@media(max-width:900px){
-  .wrap{width:min(var(--max),calc(100% - 36px))}.navlinks{display:none}
-  .hero{grid-template-columns:1fr}.hero-copy{padding:95px 0 55px}.hero-media{min-height:62vh}.products,.categories{grid-template-columns:repeat(2,1fr)}
-  .story{grid-template-columns:1fr;gap:38px}.story-media{height:480px}.offer{display:block}.offer a{display:inline-block;margin-top:22px}
-}
-@media(max-width:560px){
-  .products,.categories{grid-template-columns:1fr}.hero h1{font-size:64px}.hero-stats{gap:20px}.hero-media{min-height:430px}
-  .card-photo{height:280px}.section{padding:80px 0}.section-head{display:block}.section-head p{margin-top:14px}
-  .offer{padding:42px 28px}.footer{display:block;line-height:2}
-}
-</style>
+    .wrap {
+      width: min(var(--max), calc(100% - 64px));
+      margin: auto;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      background: rgba(7, 8, 9, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 950;
+      font-size: 25px;
+      letter-spacing: 5px;
+    }
+
+    .brand span {
+      color: var(--acid);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 30px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #9a9ea3;
+      text-transform: uppercase;
+    }
+
+    .navlinks a:hover {
+      color: #fff;
+    }
+
+    .sale-nav {
+      background: var(--acid);
+      color: #070809;
+      padding: 11px 16px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: 1.1px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 74px;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+    }
+
+    .hero-copy {
+      padding: 85px 7% 70px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      color: var(--acid);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(62px, 9vw, 142px);
+      line-height: 0.83;
+      letter-spacing: -7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--acid);
+    }
+
+    .hero-desc {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 28px 0 8px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    /* SHOP BUTTON */
+
+    .btn-primary {
+      background: var(--wa);
+      color: #071008;
+      padding: 16px 22px;
+      border: 1px solid var(--wa);
+      border-radius: 4px;
+      font-weight: 950;
+      font-size: 11px;
+      letter-spacing: 1.1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary:hover {
+      background: #20bd5b;
+      border-color: #20bd5b;
+    }
+
+    /* WHATSAPP BUTTON */
+
+    .btn-secondary {
+      background: var(--wa);
+      color: #071008;
+      border: 1px solid var(--wa);
+      padding: 16px 22px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.1px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #20bd5b;
+      border-color: #20bd5b;
+      color: #071008;
+      transform: translateY(-2px);
+    }
+
+    /* WHATSAPP ICON */
+
+    .whatsapp-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 55px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 18px;
+    }
+
+    .stat span {
+      display: block;
+      color: #70757b;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-top: 4px;
+    }
+
+    /* HERO IMAGE */
+
+    .hero-media {
+      position: relative;
+      min-height: calc(100vh - 74px);
+      overflow: hidden;
+      background: #17191d;
+    }
+
+    .hero-media img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 8, 9, 0.2),
+          rgba(7, 8, 9, 0.02) 50%,
+          rgba(7, 8, 9, 0.3)
+        );
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 26px;
+      bottom: 26px;
+      background: var(--acid);
+      color: #070809;
+      padding: 13px 16px;
+      font-weight: 950;
+      font-size: 12px;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+
+    .side-note {
+      position: absolute;
+      right: 26px;
+      top: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 12px 14px;
+      font-size: 9px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(7, 8, 9, 0.45);
+      z-index: 2;
+    }
+
+    /* =========================
+       TICKER
+    ========================= */
+
+    .ticker {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 17px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #777d84;
+    }
+
+    .ticker span {
+      margin-right: 52px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .ticker b {
+      color: var(--acid);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 38px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 0.9;
+      letter-spacing: -4px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      max-width: 360px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .card-photo {
+      height: 310px;
+      background: #1b1e22;
+      overflow: hidden;
+    }
+
+    .card-photo img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.8) contrast(1.04);
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-photo img {
+      transform: scale(1.04);
+    }
+
+    .card-info {
+      padding: 18px;
+    }
+
+    .type {
+      font-size: 9px;
+      color: var(--acid);
+      letter-spacing: 2px;
+      font-weight: 900;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin: 9px 0 14px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .old {
+      color: #666;
+      text-decoration: line-through;
+    }
+
+    .new {
+      font-size: 20px;
+      font-weight: 950;
+    }
+
+    .discount {
+      margin-left: auto;
+      background: var(--acid);
+      color: #070809;
+      padding: 5px 7px;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .order-btn {
+      display: block;
+      margin-top: 16px;
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #363b41;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: 1px;
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .order-btn:hover {
+      background: var(--wa);
+      color: #071008;
+      border-color: var(--wa);
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category {
+      min-height: 220px;
+      border: 1px solid var(--line);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      background: #0e1012;
+    }
+
+    .category img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+      transition: 0.4s;
+    }
+
+    .category:hover img {
+      transform: scale(1.05);
+      opacity: 0.55;
+    }
+
+    .category-content {
+      position: relative;
+      z-index: 1;
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
+    .category small {
+      color: var(--acid);
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .category h3 {
+      font-size: 28px;
+      margin-top: 6px;
+    }
+
+    /* =========================
+       OFFER
+    ========================= */
+
+    .offer {
+      margin: 0 0 100px;
+      background: var(--acid);
+      color: #070809;
+      padding: 54px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      border-radius: 7px;
+    }
+
+    .offer h2 {
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 0.87;
+      letter-spacing: -4px;
+      font-weight: 950;
+    }
+
+    .offer p {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .offer a {
+      background: #070809;
+      color: #fff;
+      padding: 16px 21px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story-media {
+      height: 620px;
+      overflow: hidden;
+      background: #1a1d20;
+    }
+
+    .story-media img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.72);
+    }
+
+    .story-copy h2 {
+      font-size: clamp(46px, 6vw, 80px);
+      line-height: 0.9;
+      letter-spacing: -4px;
+      font-weight: 950;
+    }
+
+    .story-copy h2 span {
+      color: var(--acid);
+    }
+
+    .story-copy p {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 13px;
+      margin: 28px 0;
+    }
+
+    .points {
+      border-top: 1px solid var(--line);
+    }
+
+    .point {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+    }
+
+    .point span:last-child {
+      color: var(--muted);
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================= */
+
+    .final-cta {
+      padding: 110px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(52px, 9vw, 120px);
+      line-height: 0.84;
+      letter-spacing: -6px;
+      font-weight: 950;
+    }
+
+    .final-cta h2 span {
+      color: var(--acid);
+    }
+
+    .final-cta p {
+      max-width: 540px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .final-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 26px;
+      background: var(--wa);
+      color: #071008;
+      padding: 16px 23px;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 1px;
+      border-radius: 4px;
+    }
+
+    .final-cta a:hover {
+      background: #20bd5b;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 30px 0;
+      color: #686d73;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer strong {
+      color: #aaa;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .wrap {
+        width: min(var(--max), calc(100% - 36px));
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 95px 0 55px;
+      }
+
+      .hero-media {
+        min-height: 62vh;
+      }
+
+      .products,
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .story-media {
+        height: 480px;
+      }
+
+      .offer {
+        display: block;
+      }
+
+      .offer a {
+        display: inline-flex;
+        margin-top: 22px;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      .products,
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 64px;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .hero-media {
+        min-height: 430px;
+      }
+
+      .card-photo {
+        height: 280px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+
+      .offer {
+        padding: 42px 28px;
+      }
+
+      .footer {
+        display: block;
+        line-height: 2;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="navbar">
-  <div class="wrap nav">
-    <a class="brand" href="#">VYRON<span>.</span></a>
-    <div class="navlinks">
-      <a href="#">Training</a><a href="#">Running</a><a href="#">Football</a><a href="#">Gear</a>
-    </div>
-    <a class="sale-nav" href="#">50% OFF EVERYTHING</a>
-  </div>
-</div>
+  <!-- =========================
+       NAVBAR
+  ========================= -->
 
-<main>
-<section class="hero">
-  <div class="wrap hero-copy">
-    <div class="kicker">VYRON / PERFORMANCE SPORTS</div>
-    <h1>Train<br><em>hard.</em><br>Move fast.</h1>
-    <p class="hero-desc">Performance-first sportswear for training, running, football and everyday movement. Built with a clean, aggressive VYRON identity.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#">SHOP 50% OFF</a>
-      <a class="btn-secondary" href="#">WHATSAPP ORDER</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><b>50%</b><span>Off everything</span></div>
-      <div class="stat"><b>04</b><span>Core categories</span></div>
-      <div class="stat"><b>01</b><span>Performance mindset</span></div>
-    </div>
-  </div>
-  <div class="hero-media">
-    <img src="https://images.pexels.com/photos/3763879/pexels-photo-3763879.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Athlete wearing sports clothing">
-    <div class="hero-overlay"></div>
-    <div class="side-note">Performance / Movement / Discipline</div>
-    <div class="hero-badge">50% OFF — LIMITED DROP</div>
-  </div>
-</section>
+  <div class="navbar">
 
-<div class="ticker">
-  <span>Performance <b>•</b></span><span>Training <b>•</b></span><span>Running <b>•</b></span><span>Football <b>•</b></span><span>Gym <b>•</b></span><span>Movement <b>•</b></span>
-</div>
+    <div class="wrap nav">
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="kicker">VYRON / PERFORMANCE COLLECTION</div><h2>Built to perform.</h2></div>
-      <p>Essential sportswear and accessories with 50% off across the collection.</p>
-    </div>
+      <a class="brand" href="#">
+        VYRON<span>.</span>
+      </a>
 
-    <div class="products">
-      <article class="card"><div class="card-photo"><img src="https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sports performance shirt"></div><div class="card-info"><div class="type">TRAINING</div><h3>VYRON Core Tee</h3><div class="price-row"><span class="old">₹1,499</span><span class="new">₹749</span><span class="discount">50% OFF</span></div><a class="order-btn" href="#">ORDER ON WHATSAPP</a></div></article>
-
-      <article class="card"><div class="card-photo"><img src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Training shorts"></div><div class="card-info"><div class="type">TRAINING</div><h3>VYRON Sprint Shorts</h3><div class="price-row"><span class="old">₹1,299</span><span class="new">₹649</span><span class="discount">50% OFF</span></div><a class="order-btn" href="#">ORDER ON WHATSAPP</a></div></article>
-
-      <article class="card"><div class="card-photo"><img src="https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sports hoodie"></div><div class="card-info"><div class="type">LIFESTYLE</div><h3>VYRON Apex Hoodie</h3><div class="price-row"><span class="old">₹2,499</span><span class="new">₹1,249</span><span class="discount">50% OFF</span></div><a class="order-btn" href="#">ORDER ON WHATSAPP</a></div></article>
-
-      <article class="card"><div class="card-photo"><img src="https://images.pexels.com/photos/3763879/pexels-photo-3763879.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sports cap"></div><div class="card-info"><div class="type">ACCESSORIES</div><h3>VYRON Pace Cap</h3><div class="price-row"><span class="old">₹799</span><span class="new">₹399</span><span class="discount">50% OFF</span></div><a class="order-btn" href="#">ORDER ON WHATSAPP</a></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:20px">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="kicker">SPORT / CATEGORY</div><h2>Choose your game.</h2></div>
-      <p>Four directions. One VYRON mindset.</p>
-    </div>
-    <div class="categories">
-      <div class="category"><img src="https://images.pexels.com/photos/863926/pexels-photo-863926.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Running"><div class="category-content"><small>01</small><h3>RUNNING</h3></div></div>
-      <div class="category"><img src="https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Football"><div class="category-content"><small>02</small><h3>FOOTBALL</h3></div></div>
-      <div class="category"><img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gym training"><div class="category-content"><small>03</small><h3>TRAINING</h3></div></div>
-      <div class="category"><img src="https://images.pexels.com/photos/3764014/pexels-photo-3764014.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gym accessories"><div class="category-content"><small>04</small><h3>GYM</h3></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap">
-  <div class="offer">
-    <div><h2>50% OFF.<br>EVERYTHING.</h2><p>Limited-time VYRON performance collection offer.</p></div>
-    <a href="#">CLAIM THE OFFER →</a>
-  </div>
-</div>
-
-<section class="section">
-  <div class="wrap story">
-    <div class="story-media"><img src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1300" alt="Athlete training outdoors"></div>
-    <div class="story-copy">
-      <div class="kicker">THE VYRON STANDARD</div>
-      <h2>Built for <span>movement.</span></h2>
-      <p>VYRON is about discipline, motion and showing up. Clean silhouettes, strong materials and sports-focused essentials designed to work during training and after it.</p>
-      <div class="points">
-        <div class="point"><span>Performance-first design</span><span>01</span></div>
-        <div class="point"><span>Training to everyday wear</span><span>02</span></div>
-        <div class="point"><span>50% OFF campaign</span><span>03</span></div>
-        <div class="point"><span>Direct WhatsApp ordering</span><span>04</span></div>
+      <div class="navlinks">
+        <a href="#">Training</a>
+        <a href="#">Running</a>
+        <a href="#">Football</a>
+        <a href="#">Gear</a>
       </div>
+
+      <a class="sale-nav" href="#">
+        50% OFF EVERYTHING
+      </a>
+
     </div>
+
   </div>
-</section>
 
-<section class="final-cta">
-  <div class="wrap">
-    <div class="kicker">VYRON / YOUR NEXT MOVE</div>
-    <h2>GO <span>FURTHER.</span></h2>
-    <p>Choose your gear, claim the 50% offer and contact VYRON directly through WhatsApp.</p>
-    <a href="#">WHATSAPP — 👋 I NEED 🆔️</a>
-  </div>
-</section>
-</main>
 
-<footer>
-  <div class="wrap footer"><div><strong>VYRON SPORTS</strong> — Performance / Movement / Discipline</div><div>50% OFF EVERYTHING · © 2026</div></div>
-</footer>
+  <main>
 
-<script>
-(function(){
-  const phone = "917357070680";
-  const message = String.fromCodePoint(0x1F44B) + " I need " + String.fromCodePoint(0x1F194,0xFE0F);
-  const whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+    <!-- =========================
+         HERO
+    ========================= -->
 
-  document.querySelectorAll("a").forEach(function(a){
-    a.href = whatsappURL;
-    a.removeAttribute("target");
-    a.removeAttribute("rel");
-  });
+    <section class="hero">
 
-  document.addEventListener("click", function(e){
-    if(!e.target.closest("a")){
-      window.location.href = whatsappURL;
-    }
-  });
-})();
-</script>
+      <div class="wrap hero-copy">
+
+        <div class="kicker">
+          VYRON / PERFORMANCE SPORTS
+        </div>
+
+        <h1>
+          Train<br>
+          <em>hard.</em><br>
+          Move fast.
+        </h1>
+
+        <p class="hero-desc">
+          Performance-first sportswear for training, running,
+          football and everyday movement. Built with a clean,
+          aggressive VYRON identity.
+        </p>
+
+        <div class="hero-actions">
+
+          <!-- SHOP BUTTON -->
+
+          <a class="btn-primary" href="#">
+            SHOP 50% OFF
+          </a>
+
+
+          <!-- WHATSAPP BUTTON -->
+
+          <a class="btn-secondary whatsapp-link" href="#">
+
+            <svg
+              class="whatsapp-icon"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
+              <path d="M19.11 17.39c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.32-1.56-1.48-1.83-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.92 2.93 4.65 4.11.65.28 1.15.45 1.54.58.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+
+              <path d="M16.02 3.2c-7.07 0-12.82 5.75-12.82 12.82 0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.53-1.71a12.8 12.8 0 0 0 6.39 1.7h.01c7.06 0 12.81-5.75 12.81-12.82S23.08 3.2 16.02 3.2zm0 23.42h-.01a10.58 10.58 0 0 1-5.39-1.47l-.39-.23-3.88 1.02 1.04-3.78-.25-.39a10.6 10.6 0 1 1 8.88 4.85z"/>
+            </svg>
+
+            WHATSAPP ORDER
+
+          </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+          <div class="stat">
+            <b>50%</b>
+            <span>Off everything</span>
+          </div>
+
+          <div class="stat">
+            <b>04</b>
+            <span>Core categories</span>
+          </div>
+
+          <div class="stat">
+            <b>01</b>
+            <span>Performance mindset</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO IMAGE -->
+
+      <div class="hero-media">
+
+        <img
+          src="https://images.pexels.com/photos/3763879/pexels-photo-3763879.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Athlete wearing sports clothing"
+        >
+
+        <div class="hero-overlay"></div>
+
+        <div class="side-note">
+          Performance / Movement / Discipline
+        </div>
+
+        <div class="hero-badge">
+          50% OFF — LIMITED DROP
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TICKER
+    ========================= -->
+
+    <div class="ticker">
+
+      <span>
+        Performance <b>•</b>
+      </span>
+
+      <span>
+        Training <b>•</b>
+      </span>
+
+      <span>
+        Running <b>•</b>
+      </span>
+
+      <span>
+        Football <b>•</b>
+      </span>
+
+      <span>
+        Gym <b>•</b>
+      </span>
+
+      <span>
+        Movement <b>•</b>
+      </span>
+
+    </div>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================= -->
+
+    <section class="section">
+
+      <div class="wrap">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="kicker">
+              VYRON / PERFORMANCE COLLECTION
+            </div>
+
+            <h2>
+              Built to perform.
+            </h2>
+
+          </div>
+
+          <p>
+            Essential sportswear and accessories with 50% off
+            across the collection.
+          </p>
+
+        </div>
+
+
+        <div class="products">
+
+          <!-- PRODUCT 01 -->
+
+          <article class="card">
+
+            <div class="card-photo">
+
+              <img
+                src="https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Sports performance shirt"
+              >
+
+            </div>
+
+            <div class="card-info">
+
+              <div class="type">
+                TRAINING
+              </div>
+
+              <h3>
+                VYRON Core Tee
+              </h3>
+
+              <div class="price-row">
+
+                <span class="old">
+                  ₹1,499
+                </span>
+
+                <span class="new">
+                  ₹749
+                </span>
+
+                <span class="discount">
+                  50% OFF
+                </span>
+
+              </div>
+
+              <a class="order-btn whatsapp-link" href="#">
+                ORDER ON WHATSAPP
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 02 -->
+
+          <article class="card">
+
+            <div class="card-photo">
+
+              <img
+                src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Training shorts"
+              >
+
+            </div>
+
+            <div class="card-info">
+
+              <div class="type">
+                TRAINING
+              </div>
+
+              <h3>
+                VYRON Sprint Shorts
+              </h3>
+
+              <div class="price-row">
+
+                <span class="old">
+                  ₹1,299
+                </span>
+
+                <span class="new">
+                  ₹649
+                </span>
+
+                <span class="discount">
+                  50% OFF
+                </span>
+
+              </div>
+
+              <a class="order-btn whatsapp-link" href="#">
+                ORDER ON WHATSAPP
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 03 -->
+
+          <article class="card">
+
+            <div class="card-photo">
+
+              <img
+                src="https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Sports hoodie"
+              >
+
+            </div>
+
+            <div class="card-info">
+
+              <div class="type">
+                LIFESTYLE
+              </div>
+
+              <h3>
+                VYRON Apex Hoodie
+              </h3>
+
+              <div class="price-row">
+
+                <span class="old">
+                  ₹2,499
+                </span>
+
+                <span class="new">
+                  ₹1,249
+                </span>
+
+                <span class="discount">
+                  50% OFF
+                </span>
+
+              </div>
+
+              <a class="order-btn whatsapp-link" href="#">
+                ORDER ON WHATSAPP
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 04 -->
+
+          <article class="card">
+
+            <div class="card-photo">
+
+              <img
+                src="https://images.pexels.com/photos/3763879/pexels-photo-3763879.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Sports cap"
+              >
+
+            </div>
+
+            <div class="card-info">
+
+              <div class="type">
+                ACCESSORIES
+              </div>
+
+              <h3>
+                VYRON Pace Cap
+              </h3>
+
+              <div class="price-row">
+
+                <span class="old">
+                  ₹799
+                </span>
+
+                <span class="new">
+                  ₹399
+                </span>
+
+                <span class="discount">
+                  50% OFF
+                </span>
+
+              </div>
+
+              <a class="order-btn whatsapp-link" href="#">
+                ORDER ON WHATSAPP
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================= -->
+
+    <section
+      class="section"
+      style="padding-top:20px"
+    >
+
+      <div class="wrap">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="kicker">
+              SPORT / CATEGORY
+            </div>
+
+            <h2>
+              Choose your game.
+            </h2>
+
+          </div>
+
+          <p>
+            Four directions. One VYRON mindset.
+          </p>
+
+        </div>
+
+
+        <div class="categories">
+
+          <div class="category">
+
+            <img
+              src="https://images.pexels.com/photos/863926/pexels-photo-863926.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Running"
+            >
+
+            <div class="category-content">
+
+              <small>
+                01
+              </small>
+
+              <h3>
+                RUNNING
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="category">
+
+            <img
+              src="https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Football"
+            >
+
+            <div class="category-content">
+
+              <small>
+                02
+              </small>
+
+              <h3>
+                FOOTBALL
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="category">
+
+            <img
+              src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Gym training"
+            >
+
+            <div class="category-content">
+
+              <small>
+                03
+              </small>
+
+              <h3>
+                TRAINING
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="category">
+
+            <img
+              src="https://images.pexels.com/photos/3764014/pexels-photo-3764014.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Gym accessories"
+            >
+
+            <div class="category-content">
+
+              <small>
+                04
+              </small>
+
+              <h3>
+                GYM
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         OFFER
+    ========================= -->
+
+    <div class="wrap">
+
+      <div class="offer">
+
+        <div>
+
+          <h2>
+            50% OFF.<br>
+            EVERYTHING.
+          </h2>
+
+          <p>
+            Limited-time VYRON performance collection offer.
+          </p>
+
+        </div>
+
+        <a class="whatsapp-link" href="#">
+          CLAIM THE OFFER →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         STORY
+    ========================= -->
+
+    <section class="section">
+
+      <div class="wrap story">
+
+        <div class="story-media">
+
+          <img
+            src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1300"
+            alt="Athlete training outdoors"
+          >
+
+        </div>
+
+
+        <div class="story-copy">
+
+          <div class="kicker">
+            THE VYRON STANDARD
+          </div>
+
+          <h2>
+            Built for
+            <span>movement.</span>
+          </h2>
+
+          <p>
+            VYRON is about discipline, motion and showing up.
+            Clean silhouettes, strong materials and sports-focused
+            essentials designed to work during training and after it.
+          </p>
+
+
+          <div class="points">
+
+            <div class="point">
+              <span>
+                Performance-first design
+              </span>
+
+              <span>
+                01
+              </span>
+            </div>
+
+            <div class="point">
+              <span>
+                Training to everyday wear
+              </span>
+
+              <span>
+                02
+              </span>
+            </div>
+
+            <div class="point">
+              <span>
+                50% OFF campaign
+              </span>
+
+              <span>
+                03
+              </span>
+            </div>
+
+            <div class="point">
+              <span>
+                Direct WhatsApp ordering
+              </span>
+
+              <span>
+                04
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL CTA
+    ========================= -->
+
+    <section class="final-cta">
+
+      <div class="wrap">
+
+        <div class="kicker">
+          VYRON / YOUR NEXT MOVE
+        </div>
+
+        <h2>
+          GO <span>FURTHER.</span>
+        </h2>
+
+        <p>
+          Choose your gear, claim the 50% offer and contact
+          VYRON directly through WhatsApp.
+        </p>
+
+        <a class="whatsapp-link" href="#">
+
+          <svg
+            class="whatsapp-icon"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <path d="M19.11 17.39c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.32-1.56-1.48-1.83-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.92 2.93 4.65 4.11.65.28 1.15.45 1.54.58.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+
+            <path d="M16.02 3.2c-7.07 0-12.82 5.75-12.82 12.82 0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.53-1.71a12.8 12.8 0 0 0 6.39 1.7h.01c7.06 0 12.81-5.75 12.81-12.82S23.08 3.2 16.02 3.2zm0 23.42h-.01a10.58 10.58 0 0 1-5.39-1.47l-.39-.23-3.88 1.02 1.04-3.78-.25-.39a10.6 10.6 0 1 1 8.88 4.85z"/>
+          </svg>
+
+          WHATSAPP —
+
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="wrap footer">
+
+      <div>
+        <strong>VYRON SPORTS</strong>
+        — Performance / Movement / Discipline
+      </div>
+
+      <div>
+        50% OFF EVERYTHING · © 2026
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       WHATSAPP SCRIPT
+  ========================= -->
+
+  <script>
+
+    (function () {
+
+      const phone = "917357070680";
+
+      const message =
+        String.fromCodePoint(0x1F44B) +
+        " I need " +
+        String.fromCodePoint(0x1F194, 0xFE0F);
+
+      const whatsappURL =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      /*
+        Only elements with .whatsapp-link
+        will open WhatsApp.
+      */
+
+      document
+        .querySelectorAll(".whatsapp-link")
+        .forEach(function (link) {
+
+          link.href = whatsappURL;
+
+          link.removeAttribute("target");
+          link.removeAttribute("rel");
+
+        });
+
+    })();
+
+  </script>
+
 </body>
 </html>
